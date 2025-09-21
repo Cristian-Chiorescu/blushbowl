@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 export default function RecipeFilters() {
   const router = useRouter();
@@ -28,14 +29,17 @@ export default function RecipeFilters() {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex max-w-dvw flex-wrap gap-2 justify-center">
       {allTags.map((tag) => {
         return (
           <Button
             key={tag}
             variant={activeTags.includes(tag) ? "default" : "secondary"}
             onClick={() => handleTagClick(tag)}
-            className="hover:cursor-pointer hover:ring-2 ring-foreground"
+            className={cn(
+              "transition hover:cursor-pointer hover:ring-2 ring-foreground hover:scale-105",
+              activeTags.includes(tag) && "hover:bg-primary-hover"
+            )}
           >
             {tag}
           </Button>

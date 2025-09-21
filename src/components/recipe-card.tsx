@@ -14,7 +14,7 @@ import { Clock } from "lucide-react";
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
   return (
-    <Card className="w-full h-full overflow-hidden flex flex-col pt-0 pb-2 font-sans">
+    <Card className="w-full h-full overflow-hidden flex flex-col pt-0 pb-2 font-sans shadow-md hover:shadow-2xl transition">
       <div className="relative h-3/4">
         <Image
           src={recipe.image}
@@ -30,15 +30,15 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
             {recipe.description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="flex justify-between gap-4 px-2 mt-4">
-          <div className="flex items-center text-sm gap-2 text-muted-foreground">
+        <CardFooter className="flex justify-between px-2 mt-4 items-end">
+          <div className="flex w-1/2 items-center text-sm gap-2 text-muted-foreground ">
             <Clock className="w-4 h-4"></Clock>
             <span>{recipe.cookTime.slice(0, -4)}</span>
           </div>
-          <div className="gap-1 text-right">
+          <div className="w-1/2 text-right">
             {recipe.tags.map((tag) => {
               return (
-                <Badge key={tag} variant="default">
+                <Badge key={tag} variant="default" className="m-0.5">
                   {tag}
                 </Badge>
               );

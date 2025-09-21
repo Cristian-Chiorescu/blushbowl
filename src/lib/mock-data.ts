@@ -9,6 +9,23 @@ export const mockRecipes: Recipe[] = [
     description: "A warm and comforting classic, perfect for a chilly evening.",
     cookTime: "30 minutes",
     tags: ["Vegan", "Soup", "Comfort Food"],
+    ingredients: [
+      "1 tbsp olive oil",
+      "2 onions, chopped",
+      "2 cloves garlic, minced",
+      "800g canned tomatoes",
+      "500ml vegetable broth",
+      "1 tsp dried basil",
+      "Salt and pepper to taste",
+    ],
+    instructions: [
+      "Heat olive oil in a large pot over medium heat. Add onions and cook until soft, about 5 minutes.",
+      "Stir in the garlic and cook for another minute until fragrant.",
+      "Add the canned tomatoes, vegetable broth, and dried basil. Season with salt and pepper.",
+      "Bring to a boil, then reduce heat and simmer for at least 20 minutes to allow flavors to meld.",
+      "Use an immersion blender to blend the soup until smooth. Alternatively, let it cool slightly and blend in batches in a regular blender.",
+      "Serve hot, garnished with fresh basil or a swirl of cream.",
+    ],
   },
   {
     id: 2,
@@ -18,6 +35,8 @@ export const mockRecipes: Recipe[] = [
     description: "A healthier, oven-baked take on the Mediterranean favorite.",
     cookTime: "45 minutes",
     tags: ["Vegetarian", "Healthy"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
   {
     id: 3,
@@ -27,6 +46,8 @@ export const mockRecipes: Recipe[] = [
     description: "A vibrant and refreshing smoothie to start your day right.",
     cookTime: "5 minutes",
     tags: ["Breakfast", "Quick"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
   {
     id: 4,
@@ -37,6 +58,8 @@ export const mockRecipes: Recipe[] = [
       "A bright and zesty pasta dish that comes together in no time.",
     cookTime: "20 minutes",
     tags: ["Pasta", "Quick", "Vegetarian"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
   {
     id: 5,
@@ -47,6 +70,8 @@ export const mockRecipes: Recipe[] = [
       "The ultimate rich and decadent chocolate brownies. Pure indulgence.",
     cookTime: "50 minutes",
     tags: ["Dessert", "Baking"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
   {
     id: 6,
@@ -56,6 +81,8 @@ export const mockRecipes: Recipe[] = [
     description: "A nutrient-packed salad with a zesty lime dressing.",
     cookTime: "25 minutes",
     tags: ["Salad", "Healthy", "Gluten-Free"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
   {
     id: 7,
@@ -65,6 +92,8 @@ export const mockRecipes: Recipe[] = [
     description: "Classic American-style pancakes bursting with blueberries.",
     cookTime: "20 minutes",
     tags: ["Breakfast", "Classic"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
   {
     id: 8,
@@ -75,6 +104,8 @@ export const mockRecipes: Recipe[] = [
       "A fragrant and spicy curry with chicken and fresh vegetables.",
     cookTime: "35 minutes",
     tags: ["Spicy", "Thai", "Curry"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
   {
     id: 9,
@@ -85,5 +116,7 @@ export const mockRecipes: Recipe[] = [
       "A simple and elegant side dish that pairs well with anything.",
     cookTime: "15 minutes",
     tags: ["Side Dish", "Quick", "Healthy"],
+    ingredients: ["test"],
+    instructions: ["test"],
   },
 ];

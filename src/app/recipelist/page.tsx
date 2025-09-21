@@ -2,7 +2,7 @@ import RecipeFilters from "@/components/recipe-filters";
 import RecipeGrid from "@/components/recipe-grid";
 import { mockRecipes } from "@/lib/mock-data";
 
-export default function RecipePage({
+export default function RecipesPage({
   searchParams,
 }: {
   searchParams?: { tag?: string | string[] };
@@ -26,7 +26,7 @@ export default function RecipePage({
       : mockRecipes;
 
   return (
-    <div className="min-h-screen flex flex-col items-center mx-10">
+    <div className="min-h-screen flex flex-col items-center mx-10 pt-20">
       <h1 className="font-heading text-4xl md:text-5xl mt-10 mb-2 text-center">
         BlushBowl Recipes
       </h1>
@@ -34,6 +34,7 @@ export default function RecipePage({
         Discover your next favorite meal.
       </p>
       <RecipeFilters />
+
       <RecipeGrid recipes={filteredRecipes} />
     </div>
   );

@@ -5,4 +5,6 @@ export type Recipe = {
   description: string;
   cookTime: string;
   tags: string[];
+  ingredients: string[];
+  instructions: string[];
 };

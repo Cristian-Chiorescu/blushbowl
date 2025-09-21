@@ -4,6 +4,8 @@ import { motion, AnimatePresence, scale } from "motion/react";
 import RecipeCard from "./recipe-card";
 import { cn } from "@/lib/utils";
 import type { Recipe } from "@/lib/types";
+import Link from "next/link";
+import { slugify } from "@/lib/utils";
 
 export default function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
   return (
@@ -11,13 +13,9 @@ export default function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
       <AnimatePresence>
         {recipes.map((recipe, i) => {
           return (
-            <motion.div
+            <Link
               key={recipe.id}
-              layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              href={`/recipes/${slugify(recipe.name)}`}
               className={cn(
                 "col-span-1 row-span-1",
                 (i === 0 || i / 10 === 1) &&
@@ -25,8 +23,17 @@ export default function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
                 i / 7 === 1 && "md:text-2xl md:col-span-2"
               )}
             >
-              <RecipeCard recipe={recipe} />
-            </motion.div>
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="h-full"
+              >
+                <RecipeCard recipe={recipe} />
+              </motion.div>
+            </Link>
           );
         })}
       </AnimatePresence>
