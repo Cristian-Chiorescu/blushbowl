@@ -19,7 +19,7 @@ export default function Home() {
           size="lg"
           className="mt-8 hover:bg-primary-hover hover:scale-105"
         >
-          <Link href="/recipelist">View Recipes</Link>
+          <Link href="/recipe-list">View Recipes</Link>
         </Button>
       </div>
     </main>

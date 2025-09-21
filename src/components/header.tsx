@@ -5,9 +5,9 @@ import Image from "next/image";
 export default function Header() {
   return (
     <div className="absolute w-full flex justify-center">
-      <div className="w-full max-w-7xl px-10 flex items-center justify-between">
+      <div className="w-full max-w-7xl px-4 md:px-10 flex items-center justify-between">
         <ThemeToggle />
-        <Link href="/recipelist">
+        <Link href="/recipe-list">
           <Image
             src="/images/blushbowl-logo.png"
             alt="BlushBowl"

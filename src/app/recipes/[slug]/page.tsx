@@ -4,7 +4,14 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Clock, CircleCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "motion/react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export default function IndividualRecipePage({
   params,
@@ -20,9 +27,24 @@ export default function IndividualRecipePage({
   }
 
   return (
-    <main className="font-sans max-w-5xl mx-auto p-4 mb-20 md:p-8">
-      <div className="text-center mb-6 mt-25">
-        <div className="flex justify-center gap-2 mb-4">
+    <main className="font-sans max-w-5xl mx-auto mb-20 flex flex-col pt-4 px-4">
+      <Breadcrumb className="mt-25 mb-6">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/recipe-list">Recipes</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{recipe.name}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <div className="text-center mb-6">
+        <div className="flex justify-center gap-2 mb-2">
           {recipe.tags.map((tag) => (
             <Badge key={tag} variant="default">
               {tag}
@@ -35,7 +57,7 @@ export default function IndividualRecipePage({
         </p>
       </div>
 
-      <div className="relative w-full h-64 md:h-120 rounded-lg overflow-hidden mb-8">
+      <div className="relative w-full h-64 md:h-120 rounded-lg overflow-hidden">
         <Image
           src={recipe.image}
           alt={recipe.name}

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence, scale } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import RecipeCard from "./recipe-card";
 import { cn } from "@/lib/utils";
 import type { Recipe } from "@/lib/types";
@@ -9,7 +9,7 @@ import { slugify } from "@/lib/utils";
 
 export default function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[20rem] gap-8 my-10">
+    <div className="grid grid-cols-1 max-w-5xl self-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[20rem] gap-8 my-10 w-full">
       <AnimatePresence>
         {recipes.map((recipe, i) => {
           return (
