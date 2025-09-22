@@ -4,8 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { AnimatePresence } from "motion/react";
-import { ViewTransitions } from "next-view-transitions";
 
 const fontPoppins = Poppins({
   variable: "--font-sans",
@@ -40,11 +38,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ViewTransitions>
-            <Header />
-            {children}
-            <Footer />
-          </ViewTransitions>
+          <Header />
+          {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
