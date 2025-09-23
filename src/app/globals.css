@@ -42,9 +42,11 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-scroll: scroll 60s linear infinite;
+  --animate-scroll-reverse: "scroll-reverse" 60s linear infinite;
+  --animate-scroll-mobile: scroll 30s linear infinite;
+  --animate-scroll-reverse-mobile: "scroll-reverse" 30s linear infinite;
 }
-
-/* oklch(0.75 0.22 14.49); Rose Pompadour #FF7696 */
 
 :root {
   --background: oklch(0.97 0.01 85.33); /* Warm Off-White #F8F6F2 */
@@ -117,35 +119,20 @@
   }
 }
 
-/* Default fade transition */
-@view-transition {
-  navigation: auto;
-}
-
-/* Fade old page out */
-::view-transition-old(root) {
-  animation: fade-out 0.35s ease-in forwards;
-}
-
-/* Fade new page in */
-::view-transition-new(root) {
-  animation: fade-in 0.35s ease-out forwards;
-}
-
-@keyframes fade-out {
+@keyframes scroll {
   from {
-    opacity: 1;
+    transform: translateX(0);
   }
   to {
-    opacity: 0;
+    transform: translateX(calc(-100%));
   }
 }
 
-@keyframes fade-in {
+@keyframes scroll-reverse {
   from {
-    opacity: 0;
+    transform: translateX();
   }
   to {
-    opacity: 1;
+    transform: translateX(calc(100%));
   }
 }

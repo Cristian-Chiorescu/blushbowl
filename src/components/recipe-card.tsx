@@ -2,8 +2,6 @@ import type { Recipe } from "@/lib/types";
 import { Badge } from "./ui/badge";
 import {
   Card,
-  CardAction,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -14,7 +12,7 @@ import { Clock } from "lucide-react";
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
   return (
-    <Card className="w-full h-full overflow-hidden flex flex-col pt-0 pb-2 font-sans shadow-md hover:shadow-2xl transition">
+    <Card className="w-full h-full overflow-hidden flex flex-col pt-0 pb-2 font-sans shadow-md hover:shadow-2xl hover:-translate-y-2 transition">
       <div className="relative h-3/4">
         <Image
           src={recipe.image}
