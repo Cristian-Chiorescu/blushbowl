@@ -1,5 +1,6 @@
 import RecipeFilters from "@/components/recipe-filters";
 import RecipeGrid from "@/components/recipe-grid";
+import SearchBar from "@/components/search-bar";
 import { mockRecipes } from "@/lib/mock-data";
 import {
   Breadcrumb,
@@ -13,7 +14,7 @@ import {
 export default function RecipesPage({
   searchParams,
 }: {
-  searchParams?: { tag?: string | string[] };
+  searchParams?: { tag?: string | string[]; q?: string };
 }) {
   const currentTags = Array.isArray(searchParams?.tag)
     ? searchParams.tag
@@ -21,17 +22,21 @@ export default function RecipesPage({
     ? [searchParams.tag]
     : [];
 
-  const filteredRecipes =
-    currentTags.length > 0
-      ? mockRecipes.filter((recipe) => {
-          return currentTags.every((tagToMatch) =>
-            recipe.tags.some(
-              (recipeTag) =>
-                recipeTag.toLowerCase() === tagToMatch.toLowerCase()
-            )
-          );
-        })
-      : mockRecipes;
+  const searchQuery = searchParams?.q || "";
+
+  const filteredRecipes = mockRecipes
+    .filter((recipe) => {
+      if (currentTags.length === 0) return true;
+      return currentTags.every((tagToMatch) =>
+        recipe.tags.some(
+          (recipeTag) => recipeTag.toLowerCase() === tagToMatch.toLowerCase()
+        )
+      );
+    })
+    .filter((recipe) => {
+      const searchContent = recipe.name + " " + recipe.description;
+      return searchContent.toLowerCase().includes(searchQuery.toLowerCase());
+    });
 
   return (
     <div className="font-sans min-h-screen flex flex-col items-center pt-4 px-4">
@@ -55,6 +60,7 @@ export default function RecipesPage({
       <p className="font-sans text-center text-muted-foreground mb-8">
         Discover your next favorite meal.
       </p>
+      <SearchBar />
       <RecipeFilters />
       <RecipeGrid recipes={filteredRecipes} />
     </div>

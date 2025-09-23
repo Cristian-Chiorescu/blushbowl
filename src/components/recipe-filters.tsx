@@ -21,7 +21,9 @@ export default function RecipeFilters() {
       newTags.push(tag);
     }
 
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
+
+    params.delete("tag");
 
     newTags.forEach((t) => params.append("tag", t));
 
