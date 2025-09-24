@@ -4,6 +4,7 @@ import "./globals.css";
 import Providers from "@/components/providers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const fontPoppins = Poppins({
   variable: "--font-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
