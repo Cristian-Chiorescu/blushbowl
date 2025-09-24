@@ -19,8 +19,25 @@ const fontFredoka = Fredoka({
 });
 
 export const metadata: Metadata = {
-  title: "BlushBowl",
-  description: "Your cozy corner for delighftul recipes.",
+  title: "BlushBowl | Find Your Next Favorite Meal",
+  description:
+    "A cozy corner of the internet for discovering beautiful, easy-to-follow recipes.",
+  openGraph: {
+    title: "BlushBowl | Find Your Next Favorite Meal",
+    description:
+      "A cozy corner of the internet for discovering beautiful, easy-to-follow recipes.",
+    url: "https://blushbowl.vercel.app",
+    siteName: "BlushBowl",
+    images: [
+      {
+        url: "https://blushbowl.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

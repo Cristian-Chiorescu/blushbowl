@@ -10,7 +10,7 @@ export default function Header() {
         <ThemeToggle />
         <Link href="/recipe-list">
           <Image
-            src="/images/blushbowl-logo.png"
+            src="/blushbowl-logo.png"
             alt="BlushBowl"
             width={100}
             height={100}

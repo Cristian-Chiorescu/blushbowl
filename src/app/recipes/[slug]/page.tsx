@@ -13,6 +13,40 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { fetchRecipeById } from "@/lib/api";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const id = parseInt(params.slug.split("-")[0]);
+  if (isNaN(id)) {
+    return { title: "Recipe Not Found" };
+  }
+
+  const recipe = await fetchRecipeById(id);
+
+  if (!recipe) {
+    return { title: "Recipe Not Found" };
+  }
+
+  return {
+    title: `${recipe.name} | BlushBowl`,
+    description: recipe.description,
+    openGraph: {
+      title: `${recipe.name} | BlushBowl`,
+      description: recipe.description,
+      images: [
+        {
+          url: recipe.image,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
 
 export default async function IndividualRecipePage({
   params,
