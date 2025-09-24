@@ -24,20 +24,6 @@ export default function RecipesPage({
 
   const searchQuery = searchParams?.q || "";
 
-  const filteredRecipes = mockRecipes
-    .filter((recipe) => {
-      if (currentTags.length === 0) return true;
-      return currentTags.every((tagToMatch) =>
-        recipe.tags.some(
-          (recipeTag) => recipeTag.toLowerCase() === tagToMatch.toLowerCase()
-        )
-      );
-    })
-    .filter((recipe) => {
-      const searchContent = recipe.name + " " + recipe.description;
-      return searchContent.toLowerCase().includes(searchQuery.toLowerCase());
-    });
-
   return (
     <div className="font-sans min-h-screen flex flex-col items-center pt-4 px-4">
       <div className="max-w-5xl w-full">
@@ -62,7 +48,7 @@ export default function RecipesPage({
       </p>
       <SearchBar />
       <RecipeFilters />
-      <RecipeGrid recipes={filteredRecipes} />
+      <RecipeGrid tags={currentTags} query={searchQuery} />
     </div>
   );
 }

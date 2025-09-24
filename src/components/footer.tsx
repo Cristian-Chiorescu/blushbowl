@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -30,6 +31,19 @@ export default function Footer() {
             >
               <FontAwesomeIcon
                 icon={faLinkedin}
+                className="h-4 w-4  hover:text-white transition"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://cristianchiorescu.com/"
+              target="_blank"
+              aria-label="Portfolio"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faBriefcase}
                 className="h-4 w-4  hover:text-white transition"
               />
             </a>

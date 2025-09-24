@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fredoka, Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import Providers from "@/components/providers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -32,16 +32,11 @@ export default function RootLayout({
       <body
         className={`${fontPoppins.variable} ${fontFredoka.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <Header />
           {children}
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

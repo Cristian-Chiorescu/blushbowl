@@ -1,6 +1,7 @@
 import { ThemeToggle } from "./theme-toggle";
 import Link from "next/link";
 import Image from "next/image";
+import ApiStatusIndicatior from "./api-status-indicator";
 
 export default function Header() {
   return (
@@ -16,7 +17,9 @@ export default function Header() {
             className="scale-80 md:scale-100"
           ></Image>
         </Link>
-        <div className="h-8 w-8"></div>
+        <div className="h-8 w-8 flex flex-row-reverse scale-80 md:scale-100">
+          <ApiStatusIndicatior />
+        </div>
       </div>
     </div>
   );

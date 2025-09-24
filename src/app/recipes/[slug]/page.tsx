@@ -12,22 +12,30 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { fetchRecipeById } from "@/lib/api";
 
-export default function IndividualRecipePage({
+export default async function IndividualRecipePage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const recipe = mockRecipes.find(
-    (recipe) => slugify(recipe.name) === params.slug
-  );
+  const id = parseInt(params.slug.split("-")[0]);
+  if (isNaN(id)) {
+    notFound();
+  }
+
+  // const recipe = mockRecipes.find(
+  //   (recipe) => slugify(recipe.name) === params.slug
+  // );
+
+  const recipe = await fetchRecipeById(id);
 
   if (!recipe) {
     notFound();
   }
 
   return (
-    <main className="font-sans max-w-5xl mx-auto mb-20 flex flex-col pt-4 px-4">
+    <main className="min-h-dvh font-sans max-w-5xl mx-auto mb-20 flex flex-col pt-4 px-4">
       <Breadcrumb className="mt-25 mb-6">
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -57,28 +65,33 @@ export default function IndividualRecipePage({
         </p>
       </div>
 
-      <div className="relative w-full h-64 md:h-120 rounded-lg overflow-hidden">
-        <Image
-          src={recipe.image}
-          alt={recipe.name}
-          fill
-          className="object-cover"
-        />
-        <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm p-3 rounded-lg flex items-center gap-2">
-          <Clock />
-          <span>{recipe.cookTime}</span>
+      <div className="flex justify-center">
+        <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden max-w-xl">
+          <Image
+            src={recipe.image}
+            alt={recipe.name}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm p-3 rounded-lg flex items-center gap-2">
+            <Clock />
+            <span>{recipe.cookTime}</span>
+          </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-12">
         <div className="md:col-span-1">
           <h2 className="font-heading text-2xl mb-4">Ingredients</h2>
-          <ul className="space-y-3">
-            {recipe.ingredients.map((ingredient) => {
+          <ul className="space-y-4">
+            {recipe.ingredients.map((ingredient, i) => {
               return (
-                <li key={ingredient} className="flex items-center gap-3">
-                  <CircleCheck className="w-5 h-5 text-primary" />
-                  <span>{ingredient}</span>
+                <li key={i} className="flex items-center gap-3">
+                  <div>
+                    <CircleCheck className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>{ingredient}</div>
                 </li>
               );
             })}

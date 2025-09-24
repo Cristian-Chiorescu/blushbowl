@@ -29,7 +29,7 @@ export default function SearchBar() {
   return (
     <form
       onSubmit={handleSearch}
-      className="flex w-full max-w-lg mx-auto items-center space-x-2 mb-4"
+      className="flex w-full max-w-lg mx-auto items-center space-x-2 mb-8"
     >
       <Input
         type="text"

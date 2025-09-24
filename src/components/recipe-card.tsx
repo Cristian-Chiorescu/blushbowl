@@ -11,9 +11,11 @@ import Image from "next/image";
 import { Clock } from "lucide-react";
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
+  const tagLimit = 1;
+
   return (
-    <Card className="w-full h-full overflow-hidden flex flex-col pt-0 pb-2 font-sans shadow-md hover:shadow-2xl hover:-translate-y-2 transition">
-      <div className="relative h-3/4">
+    <Card className="w-full h-full overflow-hidden flex flex-col pt-0 mt-0 pb-2 font-sans shadow-md hover:shadow-2xl hover:-translate-y-2 transition gap-2">
+      <div className="relative w-full h-full aspect-[4/3] overflow-hidden">
         <Image
           src={recipe.image}
           alt={recipe.name}
@@ -21,28 +23,35 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
           className="object-cover"
         ></Image>
       </div>
-      <div className="flex-grow flex flex-col justify-between">
-        <CardHeader className="pl-4">
-          <CardTitle className="font-heading">{recipe.name}</CardTitle>
-          <CardDescription className="text-xs md:text-sm lg:text-md">
-            {recipe.description}
-          </CardDescription>
+      <div className="min hflex flex-col">
+        <CardHeader className="px-3">
+          <CardTitle className="font-heading mt-2">{recipe.name}</CardTitle>
+          {recipe.description && (
+            <CardDescription className="text-xs lg:text-sm line-clamp-2">
+              {recipe.description}
+            </CardDescription>
+          )}
         </CardHeader>
-        <CardFooter className="flex justify-between px-2 mt-4 items-end">
-          <div className="flex w-1/2 items-center text-sm gap-2 text-muted-foreground ">
-            <Clock className="w-4 h-4"></Clock>
-            <span>{recipe.cookTime.slice(0, -4)}</span>
-          </div>
-          <div className="w-1/2 text-right">
-            {recipe.tags.map((tag) => {
-              return (
+        {recipe.cookTime && (
+          <CardFooter className="grid grid-cols-3 justify-between px-2 mt-1 items-end">
+            <div className="flex items-center gap-1 text-sm text-muted-foreground col-span-1">
+              <Clock className="w-4 h-4"></Clock>
+              <span>{recipe.cookTime}</span>
+            </div>
+            <div className="flex flex-wrap justify-end gap-1 col-span-2">
+              {recipe.tags.slice(0, tagLimit).map((tag) => (
                 <Badge key={tag} variant="default" className="m-0.5">
                   {tag}
                 </Badge>
-              );
-            })}
-          </div>
-        </CardFooter>
+              ))}
+              {recipe.tags.length > tagLimit && (
+                <Badge variant="secondary" className="m-0.5">
+                  +{recipe.tags.length - tagLimit}
+                </Badge>
+              )}
+            </div>
+          </CardFooter>
+        )}
       </div>
     </Card>
   );

@@ -10,7 +10,14 @@ export default function RecipeFilters() {
   const searchParams = useSearchParams();
   const activeTags = searchParams.getAll("tag");
 
-  const allTags = ["Quick", "Vegan", "Breakfast", "Healthy", "Dessert"];
+  const allTags = [
+    "Quick",
+    "Vegan",
+    "Vegetarian",
+    "Gluten Free",
+    "Ketogenic",
+    "Pescetarian",
+  ];
 
   const handleTagClick = (tag: string) => {
     let newTags = [...activeTags];

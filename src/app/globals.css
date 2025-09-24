@@ -49,20 +49,20 @@
 }
 
 :root {
-  --background: oklch(0.97 0.01 85.33); /* Warm Off-White #F8F6F2 */
-  --foreground: oklch(0.48 0.03 98.74); /* Battleship Gray #74776B */
+  --background: oklch(0.97 0.01 85.33);
+  --foreground: oklch(0.48 0.03 98.74);
 
-  --card: oklch(0.98 0.02 144.3); /* Honeydew #DFF8EB */
-  --card-foreground: oklch(0.48 0.03 98.74); /* Battleship Gray */
+  --card: oklch(0.98 0.02 144.3);
+  --card-foreground: oklch(0.48 0.03 98.74);
 
   --popover: oklch(0.99 0.01 95.33);
   --popover-foreground: oklch(0.48 0.03 98.74);
 
-  --primary: oklch(0.8 0.17 14.49); /* Rose Pompadour #FF7696 */
+  --primary: oklch(0.8 0.17 14.49);
   --primary-hover: oklch(0.75 0.22 14.49);
-  --primary-foreground: oklch(0.98 0.01 19.34); /* Contrasting light text */
+  --primary-foreground: oklch(0.98 0.01 19.34);
 
-  --secondary: oklch(0.96 0.02 95.33); /* Soft Beige #F5EFE6 */
+  --secondary: oklch(0.96 0.02 95.33);
   --secondary-foreground: oklch(0.48 0.03 98.74);
 
   --muted: oklch(0.96 0.02 95.33);

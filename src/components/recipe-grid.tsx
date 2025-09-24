@@ -6,21 +6,76 @@ import { cn } from "@/lib/utils";
 import type { Recipe } from "@/lib/types";
 import Link from "next/link";
 import { slugify } from "@/lib/utils";
+import { fetchRecipes } from "@/lib/api";
+import { useQuery } from "@tanstack/react-query";
+import { Skeleton } from "./ui/skeleton";
 
-export default function RecipeGrid({ recipes }: { recipes: Recipe[] }) {
+export default function RecipeGrid({
+  tags,
+  query,
+}: {
+  tags: string[];
+  query: string;
+}) {
+  const {
+    data: recipes,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["recipes", tags, query],
+    queryFn: () => fetchRecipes(tags, query),
+  });
+
+  const filteredRecipes = recipes
+    ? recipes
+        .filter((recipe) => {
+          if (tags.length === 0) return true;
+          return tags.every((tagToMatch) =>
+            recipe.tags?.some(
+              (recipeTag) =>
+                recipeTag.toLowerCase() === tagToMatch.toLowerCase()
+            )
+          );
+        })
+        .filter((recipe) => {
+          const searchContent = recipe.name + " " + recipe.description;
+          return searchContent.toLowerCase().includes(query.toLowerCase());
+        })
+    : [];
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 max-w-5xl self-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[15rem] gap-8 my-10 w-full px-6 sm:px-0">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            key={i}
+            className={cn(
+              "col-span-1 row-span-1",
+              (i === 0 || i / 9 === 1) &&
+                "md:text-4xl md:col-span-2 md:row-span-2",
+              i / 7 === 1 && "md:text-2xl md:col-span-2"
+            )}
+          >
+            <Skeleton className="w-full h-full" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className="grid grid-cols-1 max-w-5xl self-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[20rem] gap-8 my-10 w-full">
+    <div className="grid grid-cols-1 max-w-5xl self-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[15rem] gap-8 my-10 w-full px-6 sm:px-0">
       <AnimatePresence>
-        {recipes.map((recipe, i) => {
+        {filteredRecipes.map((recipe, i) => {
           return (
             <Link
               key={recipe.id}
-              href={`/recipes/${slugify(recipe.name)}`}
+              href={`/recipes/${recipe.id}-${slugify(recipe.name)}`}
               className={cn(
                 "col-span-1 row-span-1",
-                (i === 0 || i / 10 === 1) &&
+                (i === 0 || i % 10 === 0) &&
                   "md:text-4xl md:col-span-2 md:row-span-2",
-                i / 7 === 1 && "md:text-2xl md:col-span-2"
+                i % 7 === 0 && "md:text-2xl md:col-span-2"
               )}
             >
               <motion.div
