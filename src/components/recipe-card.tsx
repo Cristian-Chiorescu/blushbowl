@@ -32,26 +32,25 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
             </CardDescription>
           )}
         </CardHeader>
-        {recipe.cookTime && (
-          <CardFooter className="grid grid-cols-3 justify-between px-2 mt-1 items-end">
-            <div className="flex items-center gap-1 text-sm text-muted-foreground col-span-1">
-              <Clock className="w-4 h-4"></Clock>
-              <span>{recipe.cookTime}</span>
-            </div>
-            <div className="flex flex-wrap justify-end gap-1 col-span-2">
-              {recipe.tags.slice(0, tagLimit).map((tag) => (
-                <Badge key={tag} variant="default" className="m-0.5">
-                  {tag}
-                </Badge>
-              ))}
-              {recipe.tags.length > tagLimit && (
-                <Badge variant="secondary" className="m-0.5">
-                  +{recipe.tags.length - tagLimit}
-                </Badge>
-              )}
-            </div>
-          </CardFooter>
-        )}
+
+        <CardFooter className="grid grid-cols-3 justify-between px-2 mt-1 items-end">
+          <div className="flex items-center gap-1 text-sm text-muted-foreground col-span-1">
+            <Clock className="w-4 h-4"></Clock>
+            <span>{recipe.cookTime}</span>
+          </div>
+          <div className="flex flex-wrap justify-end gap-1 col-span-2">
+            {recipe.tags.slice(0, tagLimit).map((tag) => (
+              <Badge key={tag} variant="default" className="m-0.5">
+                {tag}
+              </Badge>
+            ))}
+            {recipe.tags.length > tagLimit && (
+              <Badge variant="secondary" className="m-0.5">
+                +{recipe.tags.length - tagLimit}
+              </Badge>
+            )}
+          </div>
+        </CardFooter>
       </div>
     </Card>
   );
