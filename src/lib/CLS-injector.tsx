@@ -26,10 +26,10 @@ export function CLSInjector() {
 
     requestAnimationFrame(() => {
       setTimeout(() => {
-        banner.style.height = "120px";
+        banner.style.height = "150px";
       }, 1000); // first jump
       setTimeout(() => {
-        banner.style.height = "200px";
+        banner.style.height = "250px";
       }, 1800); // second jump -> bigger CLS
     });
 
