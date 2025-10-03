@@ -114,9 +114,7 @@ export default async function IndividualRecipePage({
             </Badge>
           ))}
         </div>
-        <h1 className="font-heading text-4xl md:text-6xl">
-          {recipe.name} This is before
-        </h1>
+        <h1 className="font-heading text-4xl md:text-6xl">{recipe.name}</h1>
         <p className="text-md md:text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">
           {recipe.description}
         </p>
