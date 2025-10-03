@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { fetchRecipeById } from "@/lib/api";
 import type { Metadata } from "next";
+import Script from "next/script";
+import { CLSInjector } from "@/lib/CLS-injector";
 
 export async function generateMetadata({
   params,
@@ -45,6 +47,7 @@ export async function generateMetadata({
         },
       ],
     },
+    robots: { index: false, follow: false },
   };
 }
 
@@ -69,7 +72,25 @@ export default async function IndividualRecipePage({
   }
 
   return (
-    <main className="min-h-dvh font-sans max-w-5xl mx-auto mb-20 flex flex-col pt-4 px-4">
+    <main
+      id="page-root"
+      className="min-h-dvh font-sans max-w-5xl mx-auto mb-20 flex flex-col pt-4 px-4"
+    >
+      <Script
+        id="demo-tbt"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(){
+              var start = performance.now();
+              while (performance.now() - start < 600) {} // block ~600ms
+            })();
+          `,
+        }}
+      />
+
+      <CLSInjector />
+
       <Breadcrumb className="mt-25 mb-6">
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -102,13 +123,11 @@ export default async function IndividualRecipePage({
       </div>
 
       <div className="flex justify-center">
-        <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden max-w-xl">
-          <Image
-            src={recipe.image}
-            alt={recipe.name}
-            fill
-            className="object-cover"
-            priority
+        <div className="relative rounded-lg overflow-hidden max-w-xl">
+          <img
+            src="/unoptimized-brownie-portion.png"
+            alt="Fudgy Chocolate Brownies"
+            className="w-full mx-auto"
           />
           <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm p-3 rounded-lg flex items-center gap-2">
             <Clock />
