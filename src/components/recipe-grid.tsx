@@ -84,6 +84,7 @@ export default function RecipeGrid({
       <AnimatePresence>
         {filteredRecipes.map((recipe, i) => {
           const isLCP = i === 0;
+          const isNextFour = i > 0 && i < 5;
 
           return (
             <Link
@@ -97,20 +98,52 @@ export default function RecipeGrid({
               )}
             >
               {isLCP ? (
-                <div className="h-full">
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="h-full"
+                >
                   <RecipeCard
                     recipe={recipe}
                     loading="eager"
                     fetchPriority="high"
                   />
-                </div>
+                </motion.div>
+              ) : isNextFour ? (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="h-full"
+                >
+                  <RecipeCard
+                    recipe={recipe}
+                    loading="eager"
+                    fetchPriority="high"
+                    lowRes
+                  />
+                </motion.div>
               ) : (
-                <RecipeCard
-                  recipe={recipe}
-                  loading="lazy"
-                  fetchPriority="low"
-                  lowRes
-                />
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="h-full"
+                >
+                  <RecipeCard
+                    recipe={recipe}
+                    loading="lazy"
+                    fetchPriority="low"
+                    lowRes
+                  />
+                </motion.div>
               )}
             </Link>
           );
