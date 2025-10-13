@@ -35,7 +35,8 @@ export default function Header() {
             width={100}
             height={100}
             className="scale-80 md:scale-100"
-            priority
+            loading="eager"
+            fetchPriority="high"
           />
         </Link>
         <ApiStatusWrapper />
