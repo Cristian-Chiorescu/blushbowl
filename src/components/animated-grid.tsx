@@ -12,7 +12,11 @@ export default function AnimatedGrid() {
             key={`${recipe.id}-${index}-1`}
             className="h-[12vh] md:h-[15vh] flex-shrink-0"
           >
-            <DecorativeCard recipe={recipe} />
+            <DecorativeCard
+              recipe={recipe}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "low"}
+            />
           </div>
         ))}
       </div>
@@ -22,7 +26,11 @@ export default function AnimatedGrid() {
             key={`${recipe.id}-${index}-2`}
             className="h-[12vh] md:h-[15vh] flex-shrink-0"
           >
-            <DecorativeCard recipe={recipe} />
+            <DecorativeCard
+              recipe={recipe}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "low"}
+            />
           </div>
         ))}
       </div>
