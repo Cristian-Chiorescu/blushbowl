@@ -47,6 +47,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="/blushbowl-logo.png"
+          as="image"
+          fetchPriority="high"
+        />
+      </head>
       <body
         className={`${fontPoppins.variable} ${fontFredoka.variable} antialiased`}
       >

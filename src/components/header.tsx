@@ -1,7 +1,22 @@
-import { ThemeToggle } from "./theme-toggle";
 import Link from "next/link";
 import Image from "next/image";
-import ApiStatusIndicatior from "./api-status-indicator";
+import dynamic from "next/dynamic";
+
+// Lazy load client components to avoid blocking LCP
+const ThemeToggle = dynamic(
+  () => import("./theme-toggle").then((mod) => mod.ThemeToggle),
+  {
+    ssr: false,
+    loading: () => <div className="w-10 h-10 scale-80 md:scale-100" />,
+  }
+);
+
+const ApiStatusIndicator = dynamic(() => import("./api-status-indicator"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-8 w-8 flex flex-row-reverse scale-80 md:scale-100" />
+  ),
+});
 
 export default function Header() {
   return (
@@ -15,12 +30,11 @@ export default function Header() {
             width={100}
             height={100}
             className="scale-80 md:scale-100"
-            loading="eager"
-            fetchPriority="high"
-          ></Image>
+            priority
+          />
         </Link>
         <div className="h-8 w-8 flex flex-row-reverse scale-80 md:scale-100">
-          <ApiStatusIndicatior />
+          <ApiStatusIndicator />
         </div>
       </div>
     </div>
