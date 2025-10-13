@@ -14,8 +14,8 @@ export default function AnimatedGrid() {
           >
             <DecorativeCard
               recipe={recipe}
-              loading={index === 0 ? "eager" : "lazy"}
-              fetchPriority={index === 0 ? "high" : "low"}
+              loading={index < 10 ? "eager" : "lazy"}
+              fetchPriority={index < 10 ? "high" : "low"}
             />
           </div>
         ))}
@@ -28,8 +28,8 @@ export default function AnimatedGrid() {
           >
             <DecorativeCard
               recipe={recipe}
-              loading={index === 0 ? "eager" : "lazy"}
-              fetchPriority={index === 0 ? "high" : "low"}
+              loading={index < 10 ? "eager" : "lazy"}
+              fetchPriority={index < 10 ? "high" : "low"}
             />
           </div>
         ))}
