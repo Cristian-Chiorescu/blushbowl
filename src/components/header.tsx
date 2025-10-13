@@ -15,6 +15,8 @@ export default function Header() {
             width={100}
             height={100}
             className="scale-80 md:scale-100"
+            loading="eager"
+            fetchPriority="high"
           ></Image>
         </Link>
         <div className="h-8 w-8 flex flex-row-reverse scale-80 md:scale-100">
