@@ -13,17 +13,23 @@ import { Skeleton } from "./ui/skeleton";
 export default function RecipeGrid({
   tags,
   query,
+  initialRecipes,
 }: {
   tags: string[];
   query: string;
+  initialRecipes: Recipe[];
 }) {
   const {
-    data: recipes,
+    data: recipes = initialRecipes,
     isLoading,
     isError,
   } = useQuery({
     queryKey: ["recipes", tags, query],
     queryFn: () => fetchRecipes(tags, query),
+    initialData: initialRecipes,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    staleTime: 30_000,
   });
 
   const filteredRecipes = recipes
@@ -42,6 +48,16 @@ export default function RecipeGrid({
           return searchContent.toLowerCase().includes(query.toLowerCase());
         })
     : [];
+
+  if ((!recipes || recipes.length === 0) && isLoading) {
+    return (
+      <div className="grid grid-cols-1 max-w-5xl self-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[15rem] gap-8 my-10 w-full px-6 sm:px-0">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <Skeleton key={i} className="w-full h-full" />
+        ))}
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -67,6 +83,8 @@ export default function RecipeGrid({
     <div className="grid grid-cols-1 max-w-5xl self-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[15rem] gap-8 my-10 w-full px-6 sm:px-0">
       <AnimatePresence>
         {filteredRecipes.map((recipe, i) => {
+          const isLCP = i === 0;
+
           return (
             <Link
               key={recipe.id}
@@ -78,16 +96,38 @@ export default function RecipeGrid({
                 i % 7 === 0 && "md:text-2xl md:col-span-2"
               )}
             >
-              <motion.div
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="h-full"
-              >
-                <RecipeCard recipe={recipe} />
-              </motion.div>
+              {isLCP ? (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="h-full"
+                >
+                  <RecipeCard
+                    recipe={recipe}
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="h-full"
+                >
+                  <RecipeCard
+                    recipe={recipe}
+                    loading="lazy"
+                    fetchPriority="low"
+                    lowRes
+                  />
+                </motion.div>
+              )}
             </Link>
           );
         })}

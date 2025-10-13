@@ -6,7 +6,7 @@ export default function DecorativeCard({ recipe }: { recipe: Recipe }) {
   return (
     <Card className="relative w-full h-full overflow-hidden aspect-[6/4]">
       <Image
-        src={recipe.image}
+        src={recipe.lowResImage}
         alt={recipe.name}
         fill
         className="object-cover"

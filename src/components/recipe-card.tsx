@@ -10,20 +10,33 @@ import {
 import Image from "next/image";
 import { Clock } from "lucide-react";
 
-export default function RecipeCard({ recipe }: { recipe: Recipe }) {
+export default function RecipeCard({
+  recipe,
+  loading,
+  fetchPriority,
+  lowRes,
+}: {
+  recipe: Recipe;
+  loading?: "eager" | "lazy" | undefined;
+  fetchPriority?: "high" | "low" | "auto" | undefined;
+  lowRes?: boolean;
+}) {
   const tagLimit = 1;
+  const imageSource = lowRes ? recipe.lowResImage : recipe.image;
 
   return (
     <Card className="w-full h-full overflow-hidden flex flex-col pt-0 mt-0 pb-2 font-sans shadow-md hover:shadow-2xl hover:-translate-y-2 transition gap-2">
       <div className="relative w-full h-full aspect-[4/3] overflow-hidden">
         <Image
-          src={recipe.image}
+          src={imageSource}
           alt={recipe.name}
           fill
           className="object-cover"
+          loading={loading}
+          fetchPriority={fetchPriority}
         ></Image>
       </div>
-      <div className="min hflex flex-col">
+      <div className="flex flex-col">
         <CardHeader className="px-3">
           <CardTitle className="font-heading mt-2">{recipe.name}</CardTitle>
           {recipe.description && (

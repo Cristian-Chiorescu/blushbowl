@@ -2,6 +2,7 @@ import RecipeFilters from "@/components/recipe-filters";
 import RecipeGrid from "@/components/recipe-grid";
 import SearchBar from "@/components/search-bar";
 import { mockRecipes } from "@/lib/mock-data";
+import { fetchRecipes } from "@/lib/api";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -23,6 +24,8 @@ export default function RecipesPage({
     : [];
 
   const searchQuery = searchParams?.q || "";
+
+  const initialRecipes = mockRecipes;
 
   return (
     <div className="font-sans min-h-screen flex flex-col items-center pt-4 px-4">
@@ -48,7 +51,11 @@ export default function RecipesPage({
       </p>
       <SearchBar />
       <RecipeFilters />
-      <RecipeGrid tags={currentTags} query={searchQuery} />
+      <RecipeGrid
+        tags={currentTags}
+        query={searchQuery}
+        initialRecipes={initialRecipes}
+      />
     </div>
   );
 }

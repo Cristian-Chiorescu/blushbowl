@@ -8,13 +8,13 @@ export default function ApiStatusIndicatior() {
 
   if (status === "live") {
     return (
-      <Badge variant="secondary" className="hover:cursor-default">
+      <Badge variant="secondary" className="hover:cursor-default font-sans">
         API: Live
       </Badge>
     );
   }
   return (
-    <Badge variant="destructive" className="hover:cursor-default">
+    <Badge variant="destructive" className="hover:cursor-default font-sans">
       API: Mock
     </Badge>
   );
