@@ -9,6 +9,7 @@ import { slugify } from "@/lib/utils";
 import { fetchRecipes } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "./ui/skeleton";
+import { useEffect, useRef } from "react";
 
 export default function RecipeGrid({
   tags,
@@ -19,6 +20,12 @@ export default function RecipeGrid({
   query: string;
   initialRecipes: Recipe[];
 }) {
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    // After first render, mark as no longer initial mount
+    isInitialMount.current = false;
+  }, []);
   const {
     data: recipes = initialRecipes,
     isLoading,
@@ -85,6 +92,7 @@ export default function RecipeGrid({
         {filteredRecipes.map((recipe, i) => {
           const isLCP = i === 0;
           const isNextFour = i > 0 && i < 5;
+          const shouldAnimate = !isInitialMount.current;
 
           return (
             <Link
@@ -98,52 +106,84 @@ export default function RecipeGrid({
               )}
             >
               {isLCP ? (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="h-full"
-                >
-                  <RecipeCard
-                    recipe={recipe}
-                    loading="eager"
-                    fetchPriority="high"
-                  />
-                </motion.div>
+                shouldAnimate ? (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="h-full"
+                  >
+                    <RecipeCard
+                      recipe={recipe}
+                      loading="eager"
+                      fetchPriority="high"
+                    />
+                  </motion.div>
+                ) : (
+                  <div className="h-full">
+                    <RecipeCard
+                      recipe={recipe}
+                      loading="eager"
+                      fetchPriority="high"
+                    />
+                  </div>
+                )
               ) : isNextFour ? (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="h-full"
-                >
-                  <RecipeCard
-                    recipe={recipe}
-                    loading="eager"
-                    fetchPriority="high"
-                    lowRes
-                  />
-                </motion.div>
+                shouldAnimate ? (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="h-full"
+                  >
+                    <RecipeCard
+                      recipe={recipe}
+                      loading="eager"
+                      fetchPriority="high"
+                      lowRes
+                    />
+                  </motion.div>
+                ) : (
+                  <div className="h-full">
+                    <RecipeCard
+                      recipe={recipe}
+                      loading="eager"
+                      fetchPriority="high"
+                      lowRes
+                    />
+                  </div>
+                )
               ) : (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="h-full"
-                >
-                  <RecipeCard
-                    recipe={recipe}
-                    loading="lazy"
-                    fetchPriority="low"
-                    lowRes
-                  />
-                </motion.div>
+                shouldAnimate ? (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="h-full"
+                  >
+                    <RecipeCard
+                      recipe={recipe}
+                      loading="lazy"
+                      fetchPriority="low"
+                      lowRes
+                    />
+                  </motion.div>
+                ) : (
+                  <div className="h-full">
+                    <RecipeCard
+                      recipe={recipe}
+                      loading="lazy"
+                      fetchPriority="low"
+                      lowRes
+                    />
+                  </div>
+                )
               )}
             </Link>
           );
