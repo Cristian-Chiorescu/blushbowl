@@ -6,6 +6,8 @@ export const mockRecipes: Recipe[] = [
     name: "Cozy Tomato Soup",
     image:
       "https://images.unsplash.com/photo-1629978444632-9f63ba0eff47?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1629978444632-9f63ba0eff47?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       "A warm and comforting classic with basil and a touch of cream.",
     cookTime: "30 min",
@@ -34,6 +36,8 @@ export const mockRecipes: Recipe[] = [
     name: "Crispy Baked Falafel",
     image:
       "https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Herby chickpea patties baked to golden perfection.",
     cookTime: "35 min",
     tags: ["Vegan", "Gluten Free"],
@@ -60,6 +64,8 @@ export const mockRecipes: Recipe[] = [
     name: "Pink Berry Smoothie",
     image:
       "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "A vibrant mix of strawberries, raspberries, and yogurt.",
     cookTime: "5 min",
     tags: ["Vegetarian", "Quick", "Gluten Free"],
@@ -81,6 +87,8 @@ export const mockRecipes: Recipe[] = [
     name: "Creamy Lemon Pasta",
     image:
       "https://images.unsplash.com/photo-1571777663262-fcc9e6076644?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1571777663262-fcc9e6076644?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Bright, creamy pasta with lemon zest and parmesan.",
     cookTime: "20 min",
     tags: ["Vegetarian"],
@@ -105,6 +113,8 @@ export const mockRecipes: Recipe[] = [
     name: "Fudgy Chocolate Brownies",
     image:
       "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Ultra-moist brownies with shiny tops.",
     cookTime: "35 min",
     tags: ["Vegetarian"],
@@ -130,6 +140,8 @@ export const mockRecipes: Recipe[] = [
     name: "Teriyaki Salmon Bowl",
     image:
       "https://plus.unsplash.com/premium_photo-1726768924288-9e39b9aee11e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://plus.unsplash.com/premium_photo-1726768924288-9e39b9aee11e?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Sticky teriyaki salmon over rice with steamed greens.",
     cookTime: "25 min",
     tags: ["Pescetarian", "Gluten Free"],
@@ -153,6 +165,8 @@ export const mockRecipes: Recipe[] = [
     name: "Shrimp & Avocado Salad",
     image:
       "https://plus.unsplash.com/premium_photo-1718821752817-a2611010f8f6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://plus.unsplash.com/premium_photo-1718821752817-a2611010f8f6?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Citrusy shrimp with creamy avocado and greens.",
     cookTime: "15 min",
     tags: ["Pescetarian", "Gluten Free", "Quick"],
@@ -175,6 +189,8 @@ export const mockRecipes: Recipe[] = [
     name: "Keto Cauliflower Fried Rice",
     image:
       "https://images.unsplash.com/photo-1587995631109-2a8588e991da?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1587995631109-2a8588e991da?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Low-carb fried “rice” with veggies and egg.",
     cookTime: "20 min",
     tags: ["Ketogenic", "Gluten Free", "Quick"],
@@ -198,6 +214,8 @@ export const mockRecipes: Recipe[] = [
     name: "Zucchini Noodles with Pesto",
     image:
       "https://images.unsplash.com/photo-1645775372267-c0299feab469?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1645775372267-c0299feab469?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Fresh basil pesto tossed with spiralized zucchini.",
     cookTime: "15 min",
     tags: ["Ketogenic", "Vegetarian", "Gluten Free", "Quick"],
@@ -220,6 +238,8 @@ export const mockRecipes: Recipe[] = [
     name: "Greek Chickpea Salad",
     image:
       "https://images.unsplash.com/photo-1719196339826-c66c13ad5b86?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1719196339826-c66c13ad5b86?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Crisp cucumbers, tomatoes, olives, and chickpeas.",
     cookTime: "10 min",
     tags: ["Vegan", "Gluten Free", "Quick"],
@@ -242,6 +262,8 @@ export const mockRecipes: Recipe[] = [
     name: "Veggie Stir-Fry",
     image:
       "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4df?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4df?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Colorful veggies in a quick ginger-garlic sauce.",
     cookTime: "15 min",
     tags: ["Vegan", "Quick", "Gluten Free"],
@@ -262,6 +284,8 @@ export const mockRecipes: Recipe[] = [
     name: "Overnight Berry Oats",
     image:
       "https://plus.unsplash.com/premium_photo-1689247943271-23a7d5a076c6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://plus.unsplash.com/premium_photo-1689247943271-23a7d5a076c6?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Creamy oats you prep the night before.",
     cookTime: "5 min",
     tags: ["Vegetarian"],
@@ -284,6 +308,8 @@ export const mockRecipes: Recipe[] = [
     name: "Hearty Lentil Soup",
     image:
       "https://plus.unsplash.com/premium_photo-1712678665743-15e3833da37e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://plus.unsplash.com/premium_photo-1712678665743-15e3833da37e?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Protein-packed soup with carrots and celery.",
     cookTime: "40 min",
     tags: ["Vegan", "Gluten Free"],
@@ -307,6 +333,8 @@ export const mockRecipes: Recipe[] = [
     name: "Quinoa Tabbouleh",
     image:
       "https://images.unsplash.com/photo-1647714013867-f62bc1cc2039?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1647714013867-f62bc1cc2039?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Refreshing parsley-forward salad with lemon.",
     cookTime: "25 min",
     tags: ["Vegan", "Gluten Free"],
@@ -329,6 +357,8 @@ export const mockRecipes: Recipe[] = [
     name: "Caprese Skewers",
     image:
       "https://plus.unsplash.com/premium_photo-1677619680392-b3573dc64f4d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://plus.unsplash.com/premium_photo-1677619680392-b3573dc64f4d?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Cherry tomatoes, mozzarella, and basil on sticks.",
     cookTime: "10 min",
     tags: ["Vegetarian", "Gluten Free", "Quick"],
@@ -349,6 +379,8 @@ export const mockRecipes: Recipe[] = [
     name: "Lemon Baked Cod",
     image:
       "https://images.unsplash.com/photo-1649366095449-128ddc5ac76f?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1649366095449-128ddc5ac76f?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Flaky cod fillets with lemon and herbs.",
     cookTime: "20 min",
     tags: ["Pescetarian", "Gluten Free", "Quick"],
@@ -371,6 +403,8 @@ export const mockRecipes: Recipe[] = [
     name: "Spicy Tuna Lettuce Wraps",
     image:
       "https://images.unsplash.com/photo-1526226462688-cebb826cca38?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1526226462688-cebb826cca38?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Zesty tuna salad tucked in crunchy lettuce.",
     cookTime: "10 min",
     tags: ["Pescetarian", "Ketogenic", "Gluten Free", "Quick"],
@@ -392,6 +426,8 @@ export const mockRecipes: Recipe[] = [
     name: "Mushroom Risotto",
     image:
       "https://plus.unsplash.com/premium_photo-1694850980302-f568e6de0f6d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://plus.unsplash.com/premium_photo-1694850980302-f568e6de0f6d?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Creamy arborio rice with sautéed mushrooms.",
     cookTime: "35 min",
     tags: ["Vegetarian", "Gluten Free"],
@@ -416,6 +452,8 @@ export const mockRecipes: Recipe[] = [
     name: "Shakshuka",
     image:
       "https://images.unsplash.com/photo-1682622110419-b671026a4536?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1682622110419-b671026a4536?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Eggs poached in spiced tomato-pepper sauce.",
     cookTime: "30 min",
     tags: ["Vegetarian", "Gluten Free"],
@@ -440,6 +478,8 @@ export const mockRecipes: Recipe[] = [
     name: "Peanut Noodle Salad",
     image:
       "https://images.unsplash.com/photo-1648421778395-82d9881acf72?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    lowResImage:
+      "https://images.unsplash.com/photo-1648421778395-82d9881acf72?q=20&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Sesame-peanut dressed noodles with crunchy veg.",
     cookTime: "20 min",
     tags: ["Vegetarian"],
